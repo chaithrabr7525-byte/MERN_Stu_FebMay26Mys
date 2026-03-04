@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive oriented switch</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+</head>
+<body>
+    <section class="boredr rounded-lg p-6 space-y-4">
+        <h2>flex-col on mobile, flex-row on md+</h2>
+<div class="border rounded p-4 flex flex-col md:flex-row gap-4">
+    <div class="bg-gray-100 rounded p-4 flex-1">Block A</div>
+    <div class="bg-gray-100 rounded p-4 flex-1">Block B</div>
+    <div class="bg-gray-100 rounded p-4 flex-1">Block C</div>
+</div>
+    </section>
+
+    <nav class="border rounded-xl p-3 flex-col bg-green-200 ">
+     <div class="flex text-blue-600 gap-3 flex-col items-center">
+        <a href="#" class="">home</a>
+            <a href="#" class="hover:text-blue transition  ">name</a>
+            <a href="#" class="hover:text-blue transition font-bold ">id</a>
+            <a href="#" class="hover:text-blue transition font-bold ">contact</a>
+            <a href="#" class="hover:text-black-300 transition font-bold">login</a>
+        <a><button class="rounded-lg bg-blue-300 text-black hover:bg-blue-100  font-bold">sing up</button></a>
+     </div>
+  </nav>
+</body>
+</html>
