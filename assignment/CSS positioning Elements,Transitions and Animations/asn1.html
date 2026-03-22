@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relative position</title>
+    <style>
+    .box{
+            position: relative;
+            width: 300px;
+            height: 350px;
+            background-color: rgb(150, 186, 50);
+            border: 5px solid black;
+            margin: 50px auto;
+        }
+        .topbox{
+            position: relative;
+            width: 460px;
+            height: 35px;
+            background-color: rgb(255, 132, 0);
+            border: 5px solid black;
+            left: -85px;
+            top: -40px;
+        }
+        .box1{
+            position: relative;
+            width: 50px;
+            height: 100px;
+            background-color: yellow;
+            border: 5px solid black;
+            top: 20px;
+            left: 30px;
+        }
+        .box2{
+            position: relative;
+            width: 45px;
+            height: 70px;
+            background-color: purple;
+            border: 5px solid black;
+            top: -70px;
+            left: 200px;
+        }
+        .door{
+            position: relative;
+            width: 80px;
+            height: 152px;
+            background-color: #3f51b5;
+            border: 5px solid black;
+            top: -40px;
+            left: 104px;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+   <h2>Relative:position</h2> 
+   <div class="box">
+        <div class="topbox"></div>
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="door"></div>
+   </div>
+</body>
+</html>
