@@ -20,5 +20,4 @@ const getRoute = function(role, isLoggedIn) {
 console.log(getRoute("admin", true));     
 console.log(getRoute("student", true));    
 console.log(getRoute("college", true));    
-console.log(getRoute("proctor", true));    
-console.log(getRoute("guest", true));
+console.log(getRoute("proctor", true));

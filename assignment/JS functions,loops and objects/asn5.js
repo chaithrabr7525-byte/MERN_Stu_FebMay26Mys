@@ -1,5 +1,5 @@
-const bank = {
-    owner: "CHAITHRA BR",
+const wallet = {
+    owner: "Shalini",
     balance: 0,
     lastTransaction: null,
     deposit: function(amount) {
@@ -31,6 +31,6 @@ const bank = {
         };
     }
 };
-bank.deposit(2000);
-bank.withdraw(100);
-console.log(bank);
+wallet.deposit(1000);
+wallet.withdraw(200);
+console.log(wallet);
