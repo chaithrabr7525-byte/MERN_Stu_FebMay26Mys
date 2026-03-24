@@ -6,7 +6,7 @@ const EventEmitter = require("events");
 //to subscribe
 const orderEmitter = new EventEmitter(); //eventEmitter instance
 
-//Register a listerner for the "orderPlaced" event.
+//Register a listener for the "orderPlaced" event.
 //whenever the event is Emitted, the function will execute
 //once() register a listerner that automatically removes 
 //itself after running for the first time
@@ -39,6 +39,6 @@ orderEmitter.on("OredrPlaced",
 );
 
 //Emit the event with extra data
-//The listerner receives the orderId value
+//The listener receives the orderId value
 orderEmitter.emit("OredrPlaced","Id-2442","chaithra",250);
 orderEmitter.emit("OredrPlaced","Id-2442","chaithra",250);
