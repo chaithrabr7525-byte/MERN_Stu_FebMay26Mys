@@ -1,7 +1,7 @@
 //understanding the event loop
 console.log("1, Synchronous task started");
 
-//settiimer schdules a callback for later.
+//setTimer schedules a callback for later.
 setTimeout(()=> {
     console.log("3. Timer callback executed.");
 },0);
