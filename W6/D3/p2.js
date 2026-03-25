@@ -8,7 +8,7 @@ const path =  require("path");
 const filepath = path.join(__dirname,"sync-note.txt");
 
 fs.writeFileSync(filepath,"This file was written using writeFileSync().\nSynchronous operation block execution");
-
+//append to a file
 console.log("File written synchronously.");
 const content = fs.readFileSync(filepath,"utf-8");
 console.log("File read synchronously");
