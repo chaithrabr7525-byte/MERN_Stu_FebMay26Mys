@@ -4,6 +4,11 @@ const express = require ("express");
 const app = express();
 //to read
 app.get("/users",function(req,res){
+    res.status(200).json([
+        {id:1,name:"dud"},
+        {id:2,name:"bubu"},
+        {id:3,name:"dugu"},
+    ]);
     res.send("Returning all users");
 });
 //to create 
