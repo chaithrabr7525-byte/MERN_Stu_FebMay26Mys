@@ -1,7 +1,4 @@
-// Middleware Usage in Express
-// Middleware runs during the request-responce cycle
-// Middleware can inspect or change the request before a route responds
-// next() passes control to the next step
+//Global middleware runs for every request
 const express = require("express");
 
 const app = express();
