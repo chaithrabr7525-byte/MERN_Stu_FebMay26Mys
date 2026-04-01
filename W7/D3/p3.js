@@ -1,4 +1,4 @@
-// Handling Asynchronous errors with async/await
+// Handling Asyn errors with async/await
 const express = require("express");
 const { count } = require("node:console");
 const app = express();
