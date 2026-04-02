@@ -117,3 +117,8 @@ app.listen(4000, function () {
     console.log("JWT demo server running @ http://localhost:4000");
 
 });
+
+
+//curl -X POST http://localhost:4000/login -H "Content-Type:application/json" -d "{\"email\":\"email@email.com\",\"password\":\"pass@123\"}"
+//curl -X POST http://localhost:4000/refresh -H "Content-Type:application/json" -d "{\"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE3NzUxMTM5ODcsImV4cCI6MTc3NTk3Nzk4NywiaXNzIjoiand0LWV4YW1wbGUifQ.qCa8OcB4hjBBAvgo2WsritMLQSpbIQAHtDWQoXwPccU\"}"
+//curl http://localhost:4000/me -H "Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMSwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNzc1MTE0MDM1LCJleHAiOjE3NzUxMTQ5MzUsImlzcyI6Imp3dC1leGFtcGxlIn0.rPkGlOAF_5UkQefoTkFfoqLnx1kgpAyByonFDxdPYMM"
