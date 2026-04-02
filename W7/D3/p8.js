@@ -115,8 +115,5 @@ app.get("/me", authenticateAccessToken, function (req, res) {
 
 app.listen(4000, function () {
     console.log("JWT demo server running @ http://localhost:4000");
+
 });
-
-
-
-
