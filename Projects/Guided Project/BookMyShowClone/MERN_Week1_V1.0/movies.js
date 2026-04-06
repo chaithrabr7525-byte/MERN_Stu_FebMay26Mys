@@ -1,5 +1,5 @@
 // movies.js
-// This file stores the movie data used in the CLI App
+// This file stores the movies data used in the CLI App
 
 const movies = [
     {
