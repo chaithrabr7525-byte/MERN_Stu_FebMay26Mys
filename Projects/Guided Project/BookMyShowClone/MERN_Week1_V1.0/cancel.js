@@ -1,5 +1,4 @@
-// cancel.js
-// to cancel the existing booking if exists
+// cancel the existing booking if exists
 const bookingEmitter = require("./events");
 const { getCurrentBooking, clearCurrentBooking } = require("./booking");
 
