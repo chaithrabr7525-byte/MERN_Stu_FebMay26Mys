@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid layouts: auto-fill & auto-fit</title>
+    <style>
+        .grid-fr{
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+            grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); 
+            gap: 10px;
+            column-gap: 10px;
+            /*grid-template-columns: repeat(3,1fr);*/
+            row-gap: 10px;
+            margin-bottom: 10px; 
+        }
+        .item{
+            background-color: tomato;
+            color:black;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Auto-fill & Auto-fit -->
+    <div class="grid-fr">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <div class="grid-fr">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+</body>
+</html>
