@@ -6,7 +6,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "chai&team",
+  "author": "Bubu&team",
   "license": "ISC",
   "description": "CLI based movie ticket booking & management system using NodeJS",
   "dependencies": {
