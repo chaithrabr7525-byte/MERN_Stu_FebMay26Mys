@@ -1,4 +1,4 @@
-// Callback based validation function
+// Callback based on validation function
 
 function validateMovieSelection(movies,movieId,callback){
     const selectedMovie = movies.find((movie)=>movie.id === movieId);
