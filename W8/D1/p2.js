@@ -30,7 +30,7 @@ async function runCrudDemo() {
         const secondStudent = await Student.create({
             name: "DuduKing",
             age: 22,
-            role: "demo-student"
+            role: "software trainee"
         });
          console.log("Created new student with create()", secondStudent);
 
@@ -39,7 +39,7 @@ async function runCrudDemo() {
         console.log("Read with find():",allDemoStudents);
 
         //read using findOne()
-        const oneDemoStudent = await Student.findOne({role:"Chiru"});
+        const oneDemoStudent = await Student.findOne({role:"BubuRani"});
         console.log("Read with findOne():",oneDemoStudent);
 
         //update using findByIdAndUpdate()
