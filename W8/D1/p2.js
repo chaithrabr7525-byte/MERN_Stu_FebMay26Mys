@@ -1,6 +1,7 @@
 //CRUD operations in MongoDB using Mongoose
 const mongoose = require("mongoose")
 
+
 async function runCrudDemo() {
     try {
         await mongoose.connect("mongodb://localhost:27017/abcmern");
@@ -18,7 +19,7 @@ async function runCrudDemo() {
         //create using save()
 
         const firstStudent = new Student({
-            name: "BubuRani",
+            name: "BuduRani",
             age: 21,
             role: "demo-student"
         });
@@ -31,33 +32,36 @@ async function runCrudDemo() {
             age: 22,
             role: "demo-student"
         });
-        // console.log("Created new student with create()", secondStudent);
+         console.log("Created new student with create()", secondStudent);
 
         //read using find()
-        const allDemoStudents = await Student.find({ role: "demo-student" });
-        console.log("Read with find():", allDemoStudents);
+        const allDemoStudents = await Student.find({role:"demo-student"});
+        console.log("Read with find():",allDemoStudents);
 
         //read using findOne()
-        const oneDemoStudent = await Student.findOne({ name: "Chiru1" });
-        console.log("Read with findOne():", oneDemoStudent);
+        const oneDemoStudent = await Student.findOne({role:"Chiru"});
+        console.log("Read with findOne():",oneDemoStudent);
 
-        //Update using findByIdAndUpdate()
-        const updatedStudent = await Student.findByIdAndUpdate(
-            secondStudent._id,
-            { age: 20 },
-            { new: true }
+        //update using findByIdAndUpdate()
+    
+        const UpdatedStudent = await Student.findByIdAndUpdate(
+             secondStudent._id,
+            
+                {age:20},
+                {new:true}
         );
-        console.log("Updated with findByIdAndUpdate():", updatedStudent);
+        console.log("Updated with findByIdAndUpdate():",UpdatedStudent);
 
-        //Delete using findByIdAndDelete()
+        //delete using findByIdAndDelete()
         const deletedStudent = await Student.findByIdAndDelete(firstStudent._id);
         console.log("Deleted with findByIdAndDelete():",deletedStudent);
-        
+
+
         await mongoose.connection.close();
         console.log("connection closed");
     }
     catch (error) {
-        console.log("Crud demo error:", error.message);
+        console.log("Crud demo error:",error.message);
     }
 }
 runCrudDemo();
