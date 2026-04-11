@@ -1,18 +1,19 @@
-//Storing User's data application
+//User's details of the application
 const users = [
     {
         id:1,
-        name:"Bubu Rani",
+        name:"BubuRani",
         email:"u@e.com",
-        password:"Buri123",
+        password:"bubu123",
         role:"user"
     },
     {
         id:2,
-        name:"Dudu King",
+        name:"Admin",
         email:"a@e.com",
         password:"admin123",
         role:"admin"
-    },
+    }
 ];
+
 module.exports = users;
