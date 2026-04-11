@@ -1,8 +1,8 @@
-//Creating the Custom error handling
-class CustomError extends Error{
-    constructor(message,statusCode){ //this is object of customError
+// Custom error class created for error handling
+class CustomError extends Error {
+    constructor(message, statusCode){
         super(message);
-         this.statusCode = statusCode;
+        this.statusCode = statusCode;
     }
 }
 
