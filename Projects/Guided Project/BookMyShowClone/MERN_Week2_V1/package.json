@@ -7,9 +7,9 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "bubu&team",
+  "author": "Rakesh&Team",
   "license": "ISC",
-  "description": "ExpressJS backend for bookmyshow clone application",
+  "description": "ExpressJS backend for BookMyShow clone application",
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "express": "^5.2.1",
