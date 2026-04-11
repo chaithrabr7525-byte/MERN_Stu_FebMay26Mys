@@ -1,4 +1,4 @@
-//Indexing fro performance improvement
+// Indexing for performance improvement
 const mongoose = require("mongoose");
 
 const employeeSchema = new mongoose.Schema({
@@ -9,7 +9,7 @@ const employeeSchema = new mongoose.Schema({
 });
 
 // Compound index
-//Query filter by role & sort by createdAt
+// Query filter by role and sort by createdAt
 employeeSchema.index({role:1,createdAt:-1});
 
 const Employee = mongoose.model("IndexedEmployee",employeeSchema);
