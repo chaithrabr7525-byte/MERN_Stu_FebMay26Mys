@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "bubu&team",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.6.2"
+    "chalk": "^4.1.2"
   }
 }
