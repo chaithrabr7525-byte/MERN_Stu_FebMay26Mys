@@ -1,89 +1,114 @@
-// Basics of embedding and refrencing
+    // Relationship patterns : One-to-many, one-to-Many relation ,Many-to-Many
 const mongoose = require("mongoose");
 
 async function main() {
-    try {
+    try{
         await mongoose.connect("mongodb://127.0.0.1:27017/embrel");
         console.log("Connected to MongoDB");
-
-        const orderSchema = new mongoose.Schema({
-            product: String,
-            price: Number
+        
+        // One-to-many (embedding)
+        const blogSchema = new mongoose.Schema({
+            title:String,
+            comments:[
+                {
+                    text:String
+                }
+            ]
         });
-        const userSchema = new mongoose.Schema({
-            name: String,
-            orders: [orderSchema] //embedded doc
+        const Blog = mongoose.model('Blog',blogSchema);
+        await Blog.deleteMany();
+
+        const blog = await Blog.create({
+            title:"Mongoose basics",
+            comments:[
+                {text:"Great article"},
+                {text:"Helpful article"}
+            ]
         });
-        const User = mongoose.model('User', userSchema);
 
-        // const embeddedUser = await User.create({
-        //     name: "Abhi",
-        //     orders: [
-        //         {
-        //             product: "Laptop",
-        //             price: 50000
-        //         },
-        //         {
-        //             product: "Printer",
-        //             price: 10000
-        //         },
-        //         {
-        //             product: "Projector",
-        //             price: 70000
-        //         }
-        //     ]
-        // });
-
-        // console.log("User:\n");
-        // console.log(embeddedUser);   //fetch only single user data
-        // console.log(await User.find());  //fetching the all user data 
-
-        const users = await User.find().lean();
-        console.log(JSON.stringify(users, null, 2));
-
-        // Referencing 
-        const userRefSchema = new mongoose.Schema({
-            name: String
+        // console.log("Embedding : ");
+        // console.log(await Blog.find());
+        
+        // one-to-Many relation (referencing)
+        const postSchema = new mongoose.Schema({
+            title:String
         });
-        const orderRefSchema = new mongoose.Schema({
-            product: String,
-            price: Number,
-            user: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'UserRef'
+        const commentSchema = new mongoose.Schema({
+            text:String,
+            post:{
+                type:mongoose.Schema.Types.ObjectId,
+                ref:'Post'
             }
         });
-        const UserRef = mongoose.model('UserRef', userRefSchema);
-        const OrderRef = mongoose.model('OrderRef', orderRefSchema);
 
-        // const refUser = await User.create({ name: "Abhi" });
-        // await OrderRef.create([
-        //     {
-        //         product: "Phone",
-        //         price: 22000,
-        //         user: refUser._id
-        //     },
-        //     {
-        //         product: "Powerbank",
-        //         price: 10000,
-        //         user: refUser._id
-        //     },
-        //     {
-        //         product: "charger",
-        //         price: 1200,
-        //         user: refUser._id
-        //     }
-        // ]);
-        // console.log("Referenced Orders:\n");
-        // console.log(await OrderRef.find().populate('user'));  //fetching the all order data with user data
+        const Post = mongoose.model('Post',postSchema);
+        const Comment = mongoose.model('Comment',commentSchema);
 
-    }
-    catch (error) {
-        console.error("Error:", error.message);
-    }
-    finally {
+        await Post.deleteMany();
+        await Comment.deleteMany();
+
+        const post = await Post.create({
+            title:"NodeJS Basics"
+        });
+        await Comment.create([
+            {text:"Nice Post!", post:post._id},
+            {text:"Good!!", post:post._id}
+        ]); 
+        // console.log("Referencing: ");
+        // console.log(await Comment.find().populate('post'));
+
+        // Many-to-Many
+        const studentSchema = new mongoose.Schema({
+            name : String,
+            courses:[
+                {
+                    type:mongoose.Schema.Types.ObjectId,
+                    ref:'Course'
+                }
+            ]
+        });
+
+        const courseSchema = new mongoose.Schema({
+            title: String,
+            students: [
+                {
+                    type:mongoose.Schema.Types.ObjectId,
+                    ref:'Student'
+                }
+            ]
+        });
+
+        const Student = mongoose.model('Student',studentSchema);
+        const Course = mongoose.model('Course',courseSchema);
+
+        const course1 = await Course.create({title:"MongoDB"});
+        const course2 = await Course.create({title:"NodeJS"});
+
+        const student1 = await Student.create({
+            name:"Abhi",
+            course:[course1._id,course2._id]
+        });
+        const student2 = await Student.create({
+            name:"Manna",
+            course:[course2._id]
+        });
+        // update courses with students
+        course1.students.push(student1._id,student2._id);
+        course2.students.push(student2._id,)
+        await course1.save();
+        await course2.save();
+
+        console.log("Many-to-many: ");
+        console.log(await Student.find().populate('courses'));
+        console.log(await Course.find().populate('students'));
+    }   
+    catch(error){
+        console.error("Error:",error.message);
+    } 
+    finally{
         await mongoose.disconnect();
         console.log("Disconnected from DB.");
     }
 }
+ 
 main();
