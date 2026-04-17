@@ -6,7 +6,7 @@ function generateOTP(length = 6){
     return crypto.randomInt(100000,999999).toString();
 }
 async function hashOTP(otp) {
-    return await bcrypt.hash(otp,10);
+    return await bcrypt.hash(otp,10);//10 indicates salt round 2^10
 }
 async function verifyOTP(input,hash) {
           return await bcrypt.compare(input,hash);    
