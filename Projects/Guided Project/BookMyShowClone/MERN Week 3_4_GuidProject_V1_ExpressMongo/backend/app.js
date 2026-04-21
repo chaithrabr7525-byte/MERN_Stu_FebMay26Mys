@@ -4,7 +4,7 @@ const authRoutes = require("./routes/auth.routes");
 const app = express();
 app.use(express.json());
 app.use("/api/auth",authRoutes)
-//base url
+//base urls
 app.get("/", (req, res) => {
     res.status(200).json({
         success: true,
