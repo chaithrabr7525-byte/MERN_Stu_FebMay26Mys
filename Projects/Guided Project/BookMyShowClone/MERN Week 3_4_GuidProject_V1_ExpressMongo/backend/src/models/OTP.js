@@ -21,7 +21,7 @@ const otpSchema = new mongoose.Schema({
         default: 0,
     },
 }, { timestamps: true, });
-//TTl index
+//TTL index
 otpSchema.index({ expiresAt: 1 }, { expiresAfterSeconds: 0 });
 //export
 module.exports = mongoose.model("OTP", otpSchema);
