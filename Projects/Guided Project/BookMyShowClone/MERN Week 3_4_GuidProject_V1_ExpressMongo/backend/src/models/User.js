@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         required:[true,"Email is required"],
         unique:true,
         lowercase:true,
-        match:[/^\s+@\s+\.\s+$/,"Please use a valid email"],
+        match:[/^\S+@\S+\.\S+$/,"Please use a valid email"],
         index:true,
     },
     password:{
@@ -50,4 +50,4 @@ return;
 userSchema.methods.comparePassword=async function(enteredPassword){
     return await bcrypt.compare(enteredPassword,this.password);
 };
-module.exports = mongoosemodel("User",userSchema);
+module.exports = mongoose.model("User",userSchema);
