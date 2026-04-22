@@ -52,11 +52,11 @@ exports.loginUser = async({email,password})=>{
         process.env.JWT_SECRETE,
         {expiresIn:"1d"}
     );
-    return(
-        {token,
+    return{ 
+        token,
         user:{
             id:user._id,
             role:user.role,
         },
-    });
+    };
 };
