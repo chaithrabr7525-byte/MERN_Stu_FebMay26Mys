@@ -1,36 +1,39 @@
 const jwt = require("jsonwebtoken");
-const user = require("../models/User");
 const User = require("../models/User");
 
+
 //Auth middleware creation
-exports.protect = async (req, res, next) => {
+exports.protect = async (req,res,next) => {
     try {
         let token;
         if (
-            req.header.authorization &&
-            req.header.authorization.startsWith("Bearer")
+            req.headers.authorization &&
+            req.headers.authorization.startsWith("Bearer")
         ) {
-            token = req.authorization.split(" ")[1];
+            token = req.headers.authorization.split(" ")[1];
         }
+        console.log(token);
         if (!token) {
             return res.status(401).json({
                 success: false,
-                message: "Not authorized, token missing",
+                message: "Not authorized, token missing"
             });
+        }
             //Verify token
             const decoded = jwt.verify(token, process.env.JWT_SECRETE);
-
+            
             //Get user from DB
             const user = await User.findById(decoded.id);
 
             if (!user)
                 return res.status(404).json({
                     success: false,
-                    message: "user not found",
+                    message: "user not found"
                 });
-        }
+            
         //Attach user to request
         req.user = user;
+        console.log(user);
         next();
     }
     catch (error) {
