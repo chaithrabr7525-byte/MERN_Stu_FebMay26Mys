@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const{protect}=require("../middleware/auth.middleware");
-const{auhtorize}=require("../middleware/role.middleware");
+const{authorize}=require("../middleware/role.middleware");
 
 //public use
 router.get("/",(req,res)=>{
@@ -11,6 +11,6 @@ router.get("/",(req,res)=>{
 
 //Admin only use
 router.post("/",protect,authorize("admin"),(req,res)=>{
-    res.send("Create movie");
+    res.send("Create movies");
 });
 module.exports = router;
