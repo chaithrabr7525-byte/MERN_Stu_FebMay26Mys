@@ -1,49 +1,54 @@
-const mongoose= require("mongoose");
+const mongoose = require("mongoose");
+
 const bookingSchema = new mongoose.Schema({
     userId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
         required:true,
-        index:true,
+        index:true
     },
     showId:{
-        type:mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref:"Show",
         required:true,
         index:true
     },
     seats:{
         type:[String],
-        required:true,
+        required:true
     },
     totalSeats:{
         type:Number,
-        required:true,
+        required:true
     },
     status:{
         type:String,
-        enum:["Booked","cancelled"],
-        default:"Booked",
-        index:true,
+        enum:["booked","cancelled"],
+        default:"booked",
+        index:true
     },
     bookingTime:{
         type:Date,
-        default:Date.now(),
-    },
+        default:Date.now()
+    }
 },
 {
-    timestamps:true,
+    timestamps:true
 });
+
 //Add validation
-bookingSchema.pre("save",function(next){
-    if(this.seats.length===0){
-        return next(new error("At least one seat must be selected"));
+bookingSchema.pre("save",function(){
+    if(this.seats.length === 0){
+        // return next (new Error("At least one seat must be selected"));
+        throw new Error("At least one seat must be selected");
     }
     if(this.totalSeats!=this.seats.length){
-        return next(new Error("Seat count mismatch"));
+        // return next(new Error("Seat count mismatch"));
+        throw new Error("Seat count mismatch");
     }
-    next();
 });
-//compound index
+
+//Compound index
 bookingSchema.index({userId:1,showId:1});
+
 module.exports = mongoose.model("Booking",bookingSchema);
