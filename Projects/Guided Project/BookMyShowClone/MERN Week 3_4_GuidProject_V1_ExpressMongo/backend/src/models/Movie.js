@@ -53,7 +53,7 @@ const movieSchema = new mongoose.Schema({
     timestamps:true,
 });
 //compound index
-movieSchema.index({genre:1,rating:-1,duration});
+movieSchema.index({genre:1,rating:-1});
 
 //text index
 movieSchema.index({title:"text"});
