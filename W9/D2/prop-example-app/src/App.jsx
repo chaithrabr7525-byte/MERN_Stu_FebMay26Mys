@@ -9,6 +9,7 @@ import{ObjectsAndArrays} from './components/p7.jsx'
 import{PropsImmutability} from './components/p8.jsx'
 import{PropsState} from './components/p9.jsx'
 import{FunctionProps} from './components/p10.jsx'
+import{PropTypeDemo} from './components/p11.jsx'
 function App() {
   return (
     <>
@@ -21,8 +22,8 @@ function App() {
       {/* <ObjectsAndArrays/> */}
       {/* <PropsImmutability/> */}
       {/* <PropsState/> */}
-      <FunctionProps/>
-      
+      {/* <FunctionProps/> */}
+      <PropTypeDemo/>
     </>
   );
 }
