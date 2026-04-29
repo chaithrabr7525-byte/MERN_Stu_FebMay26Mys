@@ -8,6 +8,7 @@ import{CompositionDemo} from './components/p6.jsx'
 import{ObjectsAndArrays} from './components/p7.jsx'
 import{PropsImmutability} from './components/p8.jsx'
 import{PropsState} from './components/p9.jsx'
+import{FunctionProps} from './components/p10.jsx'
 function App() {
   return (
     <>
@@ -19,7 +20,9 @@ function App() {
       {/* <CompositionDemo/> */}
       {/* <ObjectsAndArrays/> */}
       {/* <PropsImmutability/> */}
-      <PropsState/>
+      {/* <PropsState/> */}
+      <FunctionProps/>
+      
     </>
   );
 }
