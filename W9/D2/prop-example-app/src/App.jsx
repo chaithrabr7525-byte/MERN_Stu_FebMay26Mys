@@ -4,6 +4,7 @@ import { PropDestructuring } from './components/P2'
 import { PropsChildren } from './components/P3';
 import {PropDrillingDemo} from './components/P4.jsx'
 import{SharedStateParent} from './components/p5.jsx'
+import{CompositionDemo} from './components/p6.jsx'
 function App() {
   return (
     <>
@@ -11,7 +12,8 @@ function App() {
       {/* <PropDestructuring/> */}
       {/* <PropsChildren/> */}
       {/* <PropDrillingDemo/> */}
-      <SharedStateParent/>
+      {/* <SharedStateParent/> */}
+      <CompositionDemo/>
     </>
   );
 }
