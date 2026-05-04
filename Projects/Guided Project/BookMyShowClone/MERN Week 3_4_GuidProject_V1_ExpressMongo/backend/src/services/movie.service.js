@@ -50,7 +50,7 @@ exports.updateMovie = async (id,data)=>{
         throw new Error("Movie not found");
     return movie;
     }
-};
+}
 //Delete Movie
 exports.deleteMovie = async(id)=>{
     //soft delete

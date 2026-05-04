@@ -1,4 +1,4 @@
-const Booking = require("../models/booking.model");
+const Booking = require("../models/booking");
 const Show = require("../models/Show");
 
 //Create Booking 

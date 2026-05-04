@@ -6,6 +6,6 @@ const{protect}=require("../middleware/auth.middleware");
 //user booking route 
 router.post("/",protect,bookingController.createBooking);
 router.get("/my",protect,bookingController.getMyBookings);
-router.post("/:id",protect,bookingController.cancelMyBookings);
+router.post("/:id",protect,bookingController.cancelBookings);
 
 module.exports = router;

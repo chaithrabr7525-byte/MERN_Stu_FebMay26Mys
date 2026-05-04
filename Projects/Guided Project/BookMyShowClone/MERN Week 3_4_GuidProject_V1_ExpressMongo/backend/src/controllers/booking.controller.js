@@ -33,9 +33,9 @@ next(error);
     }
 };
 //cancel bookings
-exports.cancelMyBookings = async(req,res,next)=>{
+exports.cancelBookings = async(req,res,next)=>{
     try{
-const bookings = await bookingService.cancelMyBookings(req.params.id,req,user._id);
+const bookings = await bookingService.cancelBookings(req.params.id,req,user._id);
  res.status(200).json({
             success:true,
             message:"Bookings cancelled.",
