@@ -7,7 +7,6 @@ app.use(express.json());
 app.use("/api/auth",authRoutes)
 app.use("/api/movies",movieRoutes);
 app.use("/api/booking",bookingRoutes);
-
 //base urls
 app.get("/", (req, res) => {
     res.status(200).json({
