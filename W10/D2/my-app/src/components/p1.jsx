@@ -2,6 +2,7 @@
 //Context: lets you share data b/w components w/o 
 // passing props down manually at every level
 import { createContext, useContext, useState } from 'react';
+import { useDocumentTitle } from './p2.jsx';
 //why to use context: 1.to avoid prop drilling (passing props through multiple levels of components)
 //2.to manage global state (like user authentication, theme, language)
 //basic steps to use context:
@@ -53,6 +54,7 @@ export function UseContextIntro() {
     const toggleTheme = () => {
         setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
     };
+     useDocumentTitle(`theme: ${theme}`); // using custom hook to update document title based on theme from p2.jsx
     return (
         <section>
             <h2>useContext Hook Introduction</h2>
