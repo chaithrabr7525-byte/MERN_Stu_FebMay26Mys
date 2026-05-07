@@ -17,7 +17,7 @@ export function EventObject() {
     return (
         <section>
             <h2>Event Object</h2>
-            <input type="text1" value={text}
+            <input type="text" value={text}
              onChange={handleChange} 
              placeholder="Type something..." /> 
             <p>You typed: {text}</p>
